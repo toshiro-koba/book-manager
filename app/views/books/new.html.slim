@@ -1,0 +1,10 @@
+h1 書籍の新規登録
+
+.nav.justify-content-end
+  = link_to '一覧', books_path, class: 'nav-link'
+
+= form_with model: @book, local: true do |f|
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control', id: 'book_name'
+  = f.submit nil, class: 'btn btn-primary'

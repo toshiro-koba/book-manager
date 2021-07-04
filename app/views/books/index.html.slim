@@ -1,0 +1,14 @@
+h1 書籍一覧
+= link_to '新規登録', new_book_path
+
+.mb-3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= Book.human_attribute_name(:title)
+      th= Book.human_attribute_name(:created_at)
+  tbody
+    - @books.each do |book|
+      tr
+        td= link_to book.title, book_path(book)
+        td= book.created_at
