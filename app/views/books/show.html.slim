@@ -7,3 +7,14 @@ table.table.table-hover
     tr
       th= Book.human_attribute_name(:id)
       td= @book.id
+    tr
+      th= Book.human_attribute_name(:title)
+      td= @book.title
+    tr
+      th= Book.human_attribute_name(:created_at)
+      td= @book.created_at
+    tr
+      th= Book.human_attribute_name(:updated_at)
+      td= @book.updated_at
+
+  = link_to '編集', edit_book_path(@book), class: 'btn btn-primary mr-3'

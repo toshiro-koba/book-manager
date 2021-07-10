@@ -18,6 +18,13 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @book = Book.find(params[:id])
+  end
+
+  def update
+    book = Book.find(params[:id])
+    book.update!(book_parms)
+    redirect_to books_url, notice: "書籍「#{book.title}」を更新しました。"
   end
 
   private
