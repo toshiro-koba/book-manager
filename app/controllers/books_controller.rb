@@ -1,9 +1,10 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all
+    @books = Book.all.order(id: "DESC")
   end
 
   def show
+    @book = Book.find(params[:id])
   end
 
   def new
@@ -17,6 +18,19 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @book = Book.find(params[:id])
+  end
+
+  def update
+    book = Book.find(params[:id])
+    book.update!(book_parms)
+    redirect_to books_url, notice: "書籍「#{book.title}」を更新しました。"
+  end
+
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy
+    redirect_to books_url, notice: "書籍「#{book.title}」を削除しました。"
   end
 
   private
