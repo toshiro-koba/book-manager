@@ -1,10 +1,11 @@
 class BooksController < ApplicationController
+  before_action :set_book, only: [:show, :edit, :update, :destroy]
+
   def index
-    @books = current_user.books.order(id: "DESC")
+    @books = current_user.books.recent
   end
 
   def show
-    @book = current_user.books.find(params[:id])
   end
 
   def new
@@ -21,24 +22,25 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = current_user.books.find(params[:id])
   end
 
   def update
-    book = current_user.books.find(params[:id])
-    book.update!(book_parms)
-    redirect_to books_url, notice: "書籍「#{book.title}」を更新しました。"
+    @book.update!(book_parms)
+    redirect_to books_url, notice: "書籍「#{@book.title}」を更新しました。"
   end
 
   def destroy
-    book = current_user.books.find(params[:id])
-    book.destroy
-    redirect_to books_url, notice: "書籍「#{book.title}」を削除しました。"
+    @book.destroy
+    redirect_to books_url, notice: "書籍「#{@book.title}」を削除しました。"
   end
 
   private
 
   def book_parms
     params.require(:book).permit(:title)
+  end
+
+  def set_book
+    @book = current_user.books.find(params[:id])
   end
 end
