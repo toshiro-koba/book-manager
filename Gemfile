@@ -62,4 +62,4 @@ gem 'html2slim'
 gem 'bootstrap'
 gem 'rails_autolink'
 gem 'rexml', '~> 3.2', '>= 3.2.4'
-gem 'annotate'
+gem 'annotate' # 各モデルのスキーマ情報をコメントとして書き出してくれる
