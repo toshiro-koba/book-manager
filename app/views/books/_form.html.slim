@@ -7,4 +7,7 @@
   .form-group
     = f.label :title, for: 'book_name'
     = f.text_field :title, class: 'form-control', id: 'book_name'
+  .form-group
+    = f.label :booktags, for: 'tag'
+    = f.text_field :booktags, class: 'form-control', id: 'tag', placeholder: ',で区切ってください'
   = f.submit nil, class: 'btn btn-primary'

@@ -11,6 +11,9 @@ table.table.table-hover
       th= Book.human_attribute_name(:title)
       td= @book.title
     tr
+      th= 'タグ'
+      td= book_tags(@book)
+    tr
       th= Book.human_attribute_name(:created_at)
       td= @book.created_at
     tr

@@ -14,7 +14,10 @@ class BooksController < ApplicationController
 
   def create
     @book = current_user.books.new(book_parms)
+    tag_list = params[:book][:booktags].split(',')
+
     if @book.save
+      @book.tags_save(tag_list)
       redirect_to @book, notice: "書籍「#{@book.title}」を登録しました"
     else
       render :new
@@ -25,7 +28,9 @@ class BooksController < ApplicationController
   end
 
   def update
+    tag_list = params[:book][:booktags].split(',')
     @book.update!(book_parms)
+    @book.tags_save(tag_list)
     redirect_to books_url, notice: "書籍「#{@book.title}」を更新しました。"
   end
 
