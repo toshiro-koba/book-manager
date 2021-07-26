@@ -1,9 +1,8 @@
-class Book < ApplicationRecord
-  validates :title, presence: true
-
-  belongs_to :user
-
-  scope :recent, -> { order(created_at: :desc) }
+FactoryBot.define do
+  factory :book do
+    title { 'テストの本' }
+    association :user, factory: :user
+  end
 end
 
 # == Schema Information

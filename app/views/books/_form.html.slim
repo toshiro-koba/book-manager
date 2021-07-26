@@ -5,6 +5,6 @@
 
 = form_with model: @book, local: true do |f|
   .form-group
-    = f.label :title
+    = f.label :title, for: 'book_name'
     = f.text_field :title, class: 'form-control', id: 'book_name'
   = f.submit nil, class: 'btn btn-primary'
