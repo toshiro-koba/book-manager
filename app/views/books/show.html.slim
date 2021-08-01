@@ -12,7 +12,9 @@ table.table.table-hover
       td= @book.title
     tr
       th= 'タグ'
-      td= book_tags(@book)
+      td
+        - @book.tags.each do |tag|
+          span.book-tag = tag.title
     tr
       th= Book.human_attribute_name(:created_at)
       td= @book.created_at

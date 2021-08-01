@@ -6,11 +6,15 @@ table.table.table-hover
   thead.thead-default
     tr
       th= Book.human_attribute_name(:title)
+      th= 'タグ'
       th= Book.human_attribute_name(:created_at)
   tbody
     - @books.each do |book|
       tr
         td= link_to book.title, book_path(book)
+        td
+          - book.tags.each do |tag|
+            span.book-tag = tag.title
         td= book.created_at
         td
           = link_to '編集', edit_book_path(book), class: 'btn btn-primary mr-3'

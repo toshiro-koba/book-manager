@@ -1,1 +1,18 @@
 @import "bootstrap";
+
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+ .book-tag {
+    letter-spacing: 0.02em;
+    padding: 3px 5px;
+    margin: 0 6px 0px 0;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #555555;
+    background-color: #ffe2ff;
+    border: 1px solid #fff6ff;
+    border-radius: 5px;
+}
