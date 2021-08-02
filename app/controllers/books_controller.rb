@@ -2,7 +2,8 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = current_user.books.eager_load(:tags).recent
+    # @books = current_user.books.recent
+    @books = current_user.books.eager_load(:tags).with_attached_image.recent
   end
 
   def show
@@ -42,7 +43,7 @@ class BooksController < ApplicationController
   private
 
   def book_parms
-    params.require(:book).permit(:title)
+    params.require(:book).permit(:title, :image)
   end
 
   def set_book
