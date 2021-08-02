@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = current_user.books.recent
+    @books = current_user.books.eager_load(:tags).recent
   end
 
   def show
