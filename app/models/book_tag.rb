@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BookTag < ApplicationRecord
   # VALIDATE
   validates :book_id, presence: true

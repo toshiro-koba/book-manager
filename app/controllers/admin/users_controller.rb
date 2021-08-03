@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::UsersController < ApplicationController
   before_action :require_admin
 
@@ -45,11 +47,11 @@ class Admin::UsersController < ApplicationController
 
   private
 
-  def require_admin
-    redirect_to root_path unless current_user.admin?
-  end
+    def require_admin
+      redirect_to root_path unless current_user.admin?
+    end
 
-  def user_params
-    params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation)
-  end
+    def user_params
+      params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation)
+    end
 end
