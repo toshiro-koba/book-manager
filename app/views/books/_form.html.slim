@@ -10,4 +10,7 @@
   .form-group
     = f.label :booktags, for: 'tag'
     = f.text_field :booktags, class: 'form-control', id: 'tag', placeholder: ',で区切ってください'
+  .form-group
+    = f.label :image, for: 'image'
+    = f.file_field :image, class: 'form-control', id: 'image'
   = f.submit nil, class: 'btn btn-primary'
