@@ -19,6 +19,12 @@ class Book < ApplicationRecord
       book_tags_records.destroy_all
     end
 
+    # 最初と最後にスペースがあれば削除
+    tag_list.each do |tag|
+      tag.slice!(0) if tag[0] == ' '
+      tag.slice!(-1) if tag[-1] == ' '
+    end
+
     tag_list.each do |tag|
       inspected_tag = Tag.where(title: tag).first_or_create
       tags << inspected_tag
