@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Tag < ApplicationRecord
   # ASSOCIATION
-  has_many :book_tags, dependent: :destroy, foreign_key: 'tag_id'
+  has_many :book_tags, dependent: :destroy
   has_many :books, through: :book_tags
 end
 

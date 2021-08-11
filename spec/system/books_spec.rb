@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe '書籍管理機能', type: :system do
@@ -71,5 +73,4 @@ describe '書籍管理機能', type: :system do
       end
     end
   end
-
 end

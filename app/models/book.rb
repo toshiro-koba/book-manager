@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Book < ApplicationRecord
   # VALIDATE
   validates :title, presence: true
@@ -12,14 +14,20 @@ class Book < ApplicationRecord
 
   def tags_save(tag_list)
     # すでにタグ登録していた場合、bookとの紐付けをリセットする
-    if self.tags != nil
-      book_tags_records = BookTag.where(book_id: self.id)
+    unless tags.nil?
+      book_tags_records = BookTag.where(book_id: id)
       book_tags_records.destroy_all
+    end
+
+    # 最初と最後にスペースがあれば削除
+    tag_list.each do |tag|
+      tag.slice!(0) if tag[0] == ' '
+      tag.slice!(-1) if tag[-1] == ' '
     end
 
     tag_list.each do |tag|
       inspected_tag = Tag.where(title: tag).first_or_create
-      self.tags << inspected_tag
+      tags << inspected_tag
     end
   end
 end

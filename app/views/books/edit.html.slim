@@ -4,3 +4,7 @@ h1 書籍の編集
   = link_to '一覧', books_path, class: 'nav-link'
 
 = render partial: 'form', locals: { book: @book }
+
+/ TODO: jsは個別のファイルに分ける
+javascript:
+  document.getElementById( "tag" ).value = book_tags_for_edit.value;
