@@ -17,9 +17,9 @@ table.table.table-hover
           span.book-tag = tag.title
     tr
       th= Book.human_attribute_name(:created_at)
-      td= @book.created_at.in_time_zone('Tokyo')
+      td= l @book.created_at.in_time_zone('Tokyo')
     tr
       th= Book.human_attribute_name(:updated_at)
-      td= @book.updated_at.in_time_zone('Tokyo')
+      td= l @book.updated_at.in_time_zone('Tokyo')
 
   = link_to '編集', edit_book_path(@book), class: 'btn btn-primary mr-3'

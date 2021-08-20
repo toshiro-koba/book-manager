@@ -21,6 +21,9 @@ module BookManager
                        routing_specs: false
     end
 
+    # デフォルトのロケールを日本（ja）に設定
+    config.i18n.default_locale = :ja
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
