@@ -4,7 +4,15 @@ class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
 
   def index
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @books = current_user.books.eager_load(:tags).with_attached_image.recent
+=======
+    @books = current_user.books.eager_load(:tags).recent
+>>>>>>> Stashed changes
+=======
+    @books = current_user.books.eager_load(:tags).recent
+>>>>>>> Stashed changes
   end
 
   def show; end
@@ -14,8 +22,18 @@ class BooksController < ApplicationController
   end
 
   def create
+<<<<<<< Updated upstream
     @book = current_user.books.new(book_parms)
     tag_list = params[:book][:booktags].split(',')
+=======
+    @book = Book.new(book_parms)
+    if @book.save
+      redirect_to @book, notice: "書籍「#{@book.title}」を登録しました"
+    else
+      render :new
+    end
+  end
+>>>>>>> Stashed changes
 
     if @book.save
       @book.tags_save(tag_list)

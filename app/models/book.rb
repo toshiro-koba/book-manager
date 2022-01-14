@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Book < ApplicationRecord
+<<<<<<< Updated upstream
   # VALIDATE
   validates :title, presence: true
 
@@ -30,6 +31,9 @@ class Book < ApplicationRecord
       tags << inspected_tag
     end
   end
+=======
+  validates :title, presence: true
+>>>>>>> Stashed changes
 end
 
 # == Schema Information
